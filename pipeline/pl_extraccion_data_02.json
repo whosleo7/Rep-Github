@@ -48,6 +48,33 @@
 					"referenceName": "AzureDatabricks2",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Crea tabla delta",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Data a storage",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/leonardoayala99@outlook.es/Delta table"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks3",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
